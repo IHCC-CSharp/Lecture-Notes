@@ -5,6 +5,8 @@ be very simple.
 
 ## if/else
 
+Notice "{" go on a new line in C#. This is a style choice that is different from Java.
+
 - [Docs](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements)
 
 ## Switches
@@ -26,3 +28,16 @@ Simple example showing off if/else and switch statements.
 ## Use of NuGet Package
 
 [Rich Console](https://www.nuget.org/packages/CSharpPlayersGuide.RichConsole)
+
+``bash
+dotnet add package CSharpPlayersGuide.RichConsole
+
+```
+
+
+## Example 2
+
+Now using Rich Console lets make a simple Temperature Converter.
+
+- [Temperature Converter](TemperatureConverter/Program.cs)
+```
