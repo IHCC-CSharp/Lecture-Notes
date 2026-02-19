@@ -64,3 +64,36 @@ while (guess != secretNumber)
         Console.WriteLine("Please enter a valid number.");
     }
 }
+
+// Example 2D List of Temperatures This Week (7 days, 2 readings per day: morning and evening)
+List<List<double>> temperaturesThisWeek = new List<List<double>>
+{
+    new List<double> { 15.5, 22.0 }, // Monday
+    new List<double> { 16.2, 23.5 }, // Tuesday
+    new List<double> { 14.8, 21.3 }, // Wednesday
+    new List<double> { 17.0, 24.1 }, // Thursday
+    new List<double> { 18.5, 25.0 }, // Friday
+    new List<double> { 19.2, 26.5 }, // Saturday
+    new List<double> { 17.8, 24.8 }  // Sunday
+};
+
+Console.WriteLine("\n=== Temperatures This Week ===");
+string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+for (int i = 0; i < temperaturesThisWeek.Count; i++)
+{
+    Console.WriteLine($"{days[i]}: Morning {temperaturesThisWeek[i][0]}°C, Evening {temperaturesThisWeek[i][1]}°C");
+}
+
+// Example of List of Tuples
+List<(string name, double salary, string position)> employees = new();
+employees.Add(("John", 50000.0, "Developer"));
+employees.Add(("Jane", 60000.0, "Manager"));
+employees.Add(("Bob", 45000.0, "Designer"));
+
+Console.WriteLine("\n=== Employees Example ===");
+foreach (var employee in employees)
+{
+    Console.WriteLine($"Name: {employee.name}, Salary: {employee.salary}, Position: {employee.position}");
+}
+
+

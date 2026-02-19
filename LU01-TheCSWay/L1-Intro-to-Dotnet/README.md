@@ -4,12 +4,14 @@
 
 - [ ] Look at the syllabus
 - [ ] Look at the schedule
+- [ ] Talk about class point distribution
 - [ ] Class attendance and Zoom
 - [ ] I'm too busy to re-teach the material, so you need to ask questions in class.
+- [ ] You are here to learn talk (Lifting weights AI talk).
 
 ## What is C#?
 
-- [Fireship - C# in 100 Seconds](https://www.youtube.com/watch?v=ravLFzIguCM)
+- [FireShip - C# in 100 Seconds](https://www.youtube.com/watch?v=ravLFzIguCM)
 - [Microsoft Docs](https://learn.microsoft.com/en-us/dotnet/csharp/)
 - [Custom Slide Show](slideshow/slides.html)
 
