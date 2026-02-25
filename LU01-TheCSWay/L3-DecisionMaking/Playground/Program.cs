@@ -23,6 +23,18 @@ else
 }
 
 
+//Example of IsNullOrEmpty()
+Console.WriteLine("Enter your name: ");
+var userName = Console.ReadLine();
+if (string.IsNullOrEmpty(userName))
+{
+    Console.WriteLine("You did not enter a name.");
+}
+else
+{
+    Console.WriteLine($"Hello {userName}!");
+}
+
 // Example of switch statement
 //Docs: https://www.w3schools.com/cs/cs_user_input.php
 Console.Write("Enter a day of the week: ");

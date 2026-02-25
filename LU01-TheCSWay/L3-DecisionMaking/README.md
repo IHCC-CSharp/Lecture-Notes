@@ -3,6 +3,11 @@
 Today will be our first lecture where we build a full application. It will still
 be very simple.
 
+## Book
+
+Spend time pointing out the book again.
+Show how this unit relates to the book.
+
 ## if/else
 
 Notice "{" go on a new line in C#. This is a style choice that is different from Java.
@@ -25,19 +30,16 @@ Simple example showing off if/else and switch statements.
 
 ## Rich Console
 
-## Use of NuGet Package
+Use of NuGet Package: https://www.nuget.org/ 
 
 [Rich Console](https://www.nuget.org/packages/CSharpPlayersGuide.RichConsole)
 
-``bash
+```bash
 dotnet add package CSharpPlayersGuide.RichConsole
-
 ```
-
 
 ## Example 2
 
 Now using Rich Console lets make a simple Temperature Converter.
 
 - [Temperature Converter](TemperatureConverter/Program.cs)
-```

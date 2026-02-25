@@ -96,4 +96,3 @@ foreach (var employee in employees)
     Console.WriteLine($"Name: {employee.name}, Salary: {employee.salary}, Position: {employee.position}");
 }
 
-

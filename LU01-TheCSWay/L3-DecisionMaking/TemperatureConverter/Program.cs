@@ -9,6 +9,7 @@ Console.WriteLine("2. Fahrenheit to Celsius");
 Console.Write("Choose an option (1 or 2): ");
 var choice = Console.ReadLine();
 
+//TODO convert to enhanced switch
 switch (choice)
 {
     case "1":

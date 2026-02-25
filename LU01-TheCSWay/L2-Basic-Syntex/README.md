@@ -1,5 +1,10 @@
 # Basic Syntax
 
+```bash
+dotnet new console -o Playground
+```
+
+
 ## Data Types
 
 - https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/built-in-types
