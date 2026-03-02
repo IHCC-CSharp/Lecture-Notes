@@ -1,0 +1,7 @@
+@base_url = http://localhost:5078
+
+### Get All Pokemon
+GET {{base_url}}/api/pokemon
+
+### Search for Squirtle (Fuzzy Search)
+GET {{base_url}}/api/pokemon/search?name=squirt

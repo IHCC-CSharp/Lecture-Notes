@@ -1,5 +1,5 @@
 ﻿string expression = "";
-List<string> keys = new List<string>();
+List<string> keys = [];
 
 void DisplayCalculator(string expr)
 {

@@ -1,0 +1,8 @@
+@base_url = http://localhost:5275
+
+### Get all Loaned Books
+
+GET {{base_url}}/api/books
+
+### Get Fine for a specific book loan 
+GET {{base_url}}/api/books/2/fine

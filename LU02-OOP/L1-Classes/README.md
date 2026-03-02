@@ -2,9 +2,12 @@
 
 ## Why Classes Slideshow
 
--[Sides](slideshow/slides.html)
+<!-- TODO This slides suck -->
+<!-- TODO do a better with example showing WHY objects -->
 
-## Book 
+- [Sides](slideshow/slides.html)
+
+## Book
 
 Level 15 Object Oriented Concepts
 page 181

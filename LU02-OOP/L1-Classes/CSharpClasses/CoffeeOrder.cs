@@ -1,3 +1,5 @@
+namespace CSharpClasses;
+
 public class CoffeeOrder
 {
     // Auto-implemented properties (No manual backing fields needed)

@@ -1,0 +1,6 @@
+@FortuneCookie_HostAddress = http://localhost:5005
+
+GET {{FortuneCookie_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
