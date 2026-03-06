@@ -14,7 +14,7 @@ By: Luke Matheis
 
 ---
 
-# Microsoft Loves 4 ways to do things
+# Microsoft Loves 5 ways to do things
 
 Properties sit on a scale between simplicity and control.
 

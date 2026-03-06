@@ -1,4 +1,4 @@
-# LU01 - OOP
+# LU02 - OOP
 
 ## Learning Resources
 
