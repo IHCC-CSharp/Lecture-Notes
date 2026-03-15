@@ -1,0 +1,6 @@
+@UrbanMobility.Api_HostAddress = http://localhost:5209
+
+GET {{UrbanMobility.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

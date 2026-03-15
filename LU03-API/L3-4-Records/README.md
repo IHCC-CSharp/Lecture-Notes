@@ -1,5 +1,8 @@
 # Records and OpenAPI
 
+<!-- TODO update project to change files to DTOs -->
+<!-- TODO change BookLoan to a class -->
+
 ## Part 1: Records
 
 Classes allow us to make custom reference types.

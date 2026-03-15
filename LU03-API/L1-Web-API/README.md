@@ -21,6 +21,7 @@ graph LR
 ## Creating a Project
 
 ```bash
+# Use the --use-controller so program.cs is wired up
 dotnet new webapi -o FortuneCookie --use-controllers
 cd FortuneCookie
 dotnet run

@@ -52,8 +52,8 @@ public class LibraryController : ControllerBase
 
         return Results.Ok(new FineResponse(
             loan.Title,
-            loan.CalculateFine(0.50m),
-            Math.Max(0, loan.DaysOverdue),
+            loan.CalculateFine(DailyFineRate),
+            loan.DaysOverdue(),
             loan.IsOverdue ? "Overdue" : "On Time"
         ));
     }

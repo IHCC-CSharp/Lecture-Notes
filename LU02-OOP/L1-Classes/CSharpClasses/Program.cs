@@ -1,4 +1,6 @@
-﻿// Create an object from the class
+﻿using CSharpClasses;
+
+// Create an object from the class
 CoffeeOrder morningOrder = new CoffeeOrder("Large", "Dark", 2);
 
 // Get and print the properties

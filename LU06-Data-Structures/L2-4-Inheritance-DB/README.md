@@ -1,0 +1,50 @@
+# Inheritance and Database
+
+### TPH or TPY or TPCC
+
+- Table per Hierarchy
+- Table per Type
+- Table per Concrete Class
+
+### Async/Await
+
+Our project today will use async/await to perform database operations asynchronously.
+
+### XUnit
+
+From now on, our labs will require you to write unit tests using the XUnit framework.
+
+- [slides]()
+
+## Create the Example
+
+```bash
+# Create the project
+mkdir UrbanMobility
+cd UrbanMobility
+dotnet new webapi -n UrbanMobility.Api --use-controllers
+cd UrbanMobility.Api
+dotnet new gitignore
+
+# Packages via NuGet
+dotnet add package Microsoft.Data.Sqlite
+dotnet add package Dapper
+dotnet add package Microsoft.AspNetCore.OpenApi
+dotnet add package Scalar.AspNetCore
+
+# Add project to a solution
+cd ..
+dotnet new sln
+dotnet sln add UrbanMobility.Api
+
+# Run the project
+dotnet run
+```
+
+- Create the Models including the Enums and DTOs
+- Create the Repository
+    - At first only implement CreateElectricAsync()
+- Create the Controller
+    - At first only implement CreateElectric()
+- Write it up in the Program.cs
+- Test it with Scalar
