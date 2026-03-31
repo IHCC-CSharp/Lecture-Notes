@@ -10,11 +10,11 @@ We will just ignore the API part for now and build a console app for now.
 This is easier then converting a console app to a web API later.
 
 ```bash
-dotnet new webapi -n RetroGameApp
+dotnet new webapi -n RetroGameApp # No --use-controllers since we are starting with a console app
 cd RetroGameApp
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 dotnet add package Dapper
-dotnet add package Microsoft.AspNetCore.OpenApi
+dotnet add package Microsoft.AspNetCore.OpenApi # Might be already included
 dotnet add package Scalar.AspNetCore
 ```
 
@@ -26,6 +26,29 @@ dotnet add package Scalar.AspNetCore
 ```csharp
 ConsoleApp app = new ConsoleApp();
 app.Run();
+```
+
+Temparly chnage project type to Console App in the .csproj file so we can run it.
+Also add Output type to Exe so it will run as a console app.
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.72" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="10.0.5" />
+  </ItemGroup>
+
+</Project>
+
 ```
 
 ## Part 2: Convert to Web API

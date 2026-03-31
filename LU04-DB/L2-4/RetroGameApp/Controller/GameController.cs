@@ -16,6 +16,8 @@ public class GamesController(GameRepository repo) : ControllerBase
         return Results.Ok(games);
     }
 
+
+    // TODO change to DTO
     [HttpGet("search")]
     public IResult GetByFilter([FromQuery] string? platform, [FromQuery] string? genre)
     {

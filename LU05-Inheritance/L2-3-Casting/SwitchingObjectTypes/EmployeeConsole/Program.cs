@@ -13,8 +13,7 @@ empList.Add(new Employee());
 empList.Add(new CommissionEmployee());
 
 //CAN cast CommissionEmployee object (child) to Employee object (base)    
-//Employee e = (Employee)empList[1];        
-
+//Employee e = (Employee)empList[1];
 
 //set some properties of Employee object
 empList[0].Id = 123;

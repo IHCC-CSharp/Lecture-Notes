@@ -10,12 +10,6 @@
 
 Our project today will use async/await to perform database operations asynchronously.
 
-### XUnit
-
-From now on, our labs will require you to write unit tests using the XUnit framework.
-
-- [slides]()
-
 ## Create the Example
 
 ```bash
@@ -48,3 +42,28 @@ dotnet run
     - At first only implement CreateElectric()
 - Write it up in the Program.cs
 - Test it with Scalar
+
+## Part 2 XUnit
+
+From now on, our labs will require you to write unit tests using the XUnit framework.
+
+```bash
+# Create the test project
+dotnet new xunit -o UrbanMobility.Tests
+# Add reference to the API project or what ever project you are testing
+dotnet add UrbanMobility.Tests/UrbanMobility.Tests.csproj reference UrbanMobility.Api/UrbanMobility.Api.csproj
+# Add the test project to the solution
+dotnet sln add UrbanMobility.Tests/UrbanMobility.Tests.csproj
+```
+
+```bash
+#need to add Dapper to the test just for this example
+dotnet add package Dapper
+```
+
+
+```bash
+# Run the tests
+cd UrbanMobility.Tests
+dotnet test
+```
