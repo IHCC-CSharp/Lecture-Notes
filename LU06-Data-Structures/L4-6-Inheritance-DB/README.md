@@ -1,11 +1,12 @@
 # Inheritance and Database
 
-### TPH or TPY or TPC
+Todays example we will be building a larger API with a database using Entity Framework Core.
 
-
-### Async/Await
+## Async/Await
 
 Our project today will use async/await to perform database operations asynchronously.
+
+- [Async/Await](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/async/)
 
 ## Create the Example
 
@@ -19,7 +20,7 @@ dotnet new gitignore
 
 # Packages via NuGet
 dotnet add package Microsoft.Data.Sqlite
-dotnet add package Dapper
+dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet add package Microsoft.AspNetCore.OpenApi
 dotnet add package Scalar.AspNetCore
 
@@ -33,34 +34,20 @@ dotnet run
 ```
 
 - Create the Models including the Enums and DTOs
-- Create the Repository
-    - At first only implement CreateElectricAsync()
+- Create the DBContext
 - Create the Controller
     - At first only implement CreateElectric()
+- Configure the connection string in `appsettings.json`
 - Write it up in the Program.cs
-- Test it with Scalar
 
-## Part 2 XUnit
-
-From now on, our labs will require you to write unit tests using the XUnit framework.
+### Db migrations
 
 ```bash
-# Create the test project
-dotnet new xunit -o UrbanMobility.Tests
-# Add reference to the API project or what ever project you are testing
-dotnet add UrbanMobility.Tests/UrbanMobility.Tests.csproj reference UrbanMobility.Api/UrbanMobility.Api.csproj
-# Add the test project to the solution
-dotnet sln add UrbanMobility.Tests/UrbanMobility.Tests.csproj
+dotnet ef migrations add InitialCreate
+dotnet ef database update
 ```
 
-```bash
-#need to add Dapper to the test just for this example
-dotnet add package Dapper
-```
-
-
-```bash
-# Run the tests
-cd UrbanMobility.Tests
-dotnet test
-```
+After running the program look at the DB.
+Notice how we have a complex data scenario but we only have one table.
+This is because EF uses Table Per Hierarchy (TPH).
+Resulting one wide table.

@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using UrbanMobility.Api.Models;
-using UrbanMobility.Api.Repositories;
 
 namespace UrbanMobility.Api.Controllers;
 
@@ -8,24 +8,24 @@ namespace UrbanMobility.Api.Controllers;
 [Route("api/[controller]")]
 public class VehiclesController : ControllerBase
 {
-    private readonly VehicleRepository _repository;
+    private readonly MobilityContext _context;
 
-    public VehiclesController(VehicleRepository repository)
+    public VehiclesController(MobilityContext context)
     {
-        _repository = repository;
+        _context = context;
     }
 
     [HttpGet]
     public async Task<IResult> GetAll()
     {
-        var vehicles = await _repository.GetAllAsync();
+        var vehicles = await _context.Vehicles.ToListAsync();
         return Results.Ok(vehicles);
     }
 
     [HttpGet("{id}")]
     public async Task<IResult> GetById(int id)
     {
-        var vehicle = await _repository.GetByIdAsync(id);
+        var vehicle = await _context.Vehicles.FindAsync(id);
 
         return vehicle is not null
             ? Results.Ok(vehicle)
@@ -45,10 +45,10 @@ public class VehiclesController : ControllerBase
             CurrentChargeLevel = request.CurrentChargeLevel
         };
 
-        var id = await _repository.CreateElectricAsync(vehicle);
-        vehicle.Id = id;
+        _context.Vehicles.Add(vehicle);
+        await _context.SaveChangesAsync();
 
-        return Results.Created($"/api/vehicles/{id}", vehicle);
+        return Results.Created($"/api/vehicles/{vehicle.Id}", vehicle);
     }
 
     [HttpPost("fuel")]
@@ -64,19 +64,24 @@ public class VehiclesController : ControllerBase
             Engine = request.Engine
         };
 
-        var id = await _repository.CreateFuelAsync(vehicle);
-        vehicle.Id = id;
+        _context.Vehicles.Add(vehicle);
+        await _context.SaveChangesAsync();
 
-        return Results.Created($"/api/vehicles/{id}", vehicle);
+        return Results.Created($"/api/vehicles/{vehicle.Id}", vehicle);
     }
 
     [HttpDelete("{id}")]
     public async Task<IResult> Delete(int id)
     {
-        var deleted = await _repository.DeleteAsync(id);
+        var vehicle = await _context.Vehicles.FindAsync(id);
+        if (vehicle is null)
+        {
+            return Results.NotFound();
+        }
 
-        return deleted
-            ? Results.NoContent()
-            : Results.NotFound();
+        _context.Vehicles.Remove(vehicle);
+        await _context.SaveChangesAsync();
+
+        return Results.NoContent();
     }
 }
