@@ -12,7 +12,6 @@ builder.Services.AddScoped(sp => new VehicleRepository(ConnectionString));
 
 var app = builder.Build();
 
-
 app.MapOpenApi();
 app.MapScalarApiReference();
 

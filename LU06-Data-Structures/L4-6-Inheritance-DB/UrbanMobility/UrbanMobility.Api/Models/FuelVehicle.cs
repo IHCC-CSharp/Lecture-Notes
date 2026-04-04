@@ -10,4 +10,5 @@ public class FuelVehicle : Vehicle
         // Fuel vehicles have a flat rate plus a $5 environmental fee
         return (HourlyRate * hours) + 5.00m;
     }
+    
 }

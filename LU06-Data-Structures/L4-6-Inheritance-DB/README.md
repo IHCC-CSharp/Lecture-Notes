@@ -1,10 +1,7 @@
 # Inheritance and Database
 
-### TPH or TPY or TPCC
+### TPH or TPY or TPC
 
-- Table per Hierarchy
-- Table per Type
-- Table per Concrete Class
 
 ### Async/Await
 
