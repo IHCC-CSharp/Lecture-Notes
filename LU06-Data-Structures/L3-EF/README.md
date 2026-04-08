@@ -97,6 +97,8 @@ dotnet tool install --global dotnet-ef
 # Project packages
 dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+dotnet add package Microsoft.AspNetCore.OpenApi
+dotnet add package Scalar.AspNetCore
 # Run the project
 dotnet run
 ```

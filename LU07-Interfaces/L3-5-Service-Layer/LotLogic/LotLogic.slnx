@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="LotLogic.Api/LotLogic.Api.csproj" />
+  <Project Path="LotLogic.Core/LotLogic.Core.csproj" />
+</Solution>
