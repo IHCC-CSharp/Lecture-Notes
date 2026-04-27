@@ -16,10 +16,9 @@ mkdir UrbanMobility
 cd UrbanMobility
 dotnet new webapi -n UrbanMobility.Api --use-controllers
 cd UrbanMobility.Api
-dotnet new gitignore
 
 # Packages via NuGet
-dotnet add package Microsoft.Data.Sqlite
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet add package Microsoft.AspNetCore.OpenApi
 dotnet add package Scalar.AspNetCore
@@ -49,5 +48,5 @@ dotnet ef database update
 
 After running the program look at the DB.
 Notice how we have a complex data scenario but we only have one table.
-This is because EF uses Table Per Hierarchy (TPH).
+This is because EF uses Table Per Hierarchy (TPH) by default.
 Resulting one wide table.

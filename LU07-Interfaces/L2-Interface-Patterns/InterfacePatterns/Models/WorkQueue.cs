@@ -8,6 +8,7 @@ public sealed class WorkQueue : IEnumerable<WorkItem>
 
     public void Add(WorkItem item) => _items.Add(item);
 
+    // Why do we need this?
     public List<WorkItem> ToSortedList()
     {
         var sorted = _items.ToList();

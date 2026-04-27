@@ -19,6 +19,7 @@ public abstract class WorkItem : ITrackableWork, IComparable<WorkItem>, IEquatab
     }
 
     public bool IsOverdue(DateTime today) => DueDate.Date < today.Date;
+    public abstract string Describe();
 
     public int CompareTo(WorkItem? other)
     {
@@ -48,7 +49,7 @@ public abstract class WorkItem : ITrackableWork, IComparable<WorkItem>, IEquatab
 
     public override bool Equals(object? obj) => Equals(obj as WorkItem);
 
+    //TODO Do I need this?
     public override int GetHashCode() => Id.GetHashCode();
 
-    public abstract string Describe();
 }

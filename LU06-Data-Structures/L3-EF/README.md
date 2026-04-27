@@ -66,7 +66,7 @@ If you do nothing, EF Core uses **TPH by default**.
 
 Quick guidance:
 
-- Use TPH first for most apps (fastest and simplest).
+- Use TPH fine for most apps (fastest and simplest).
 - Use TPT when normalized tables per type are more important than query speed.
 - Use TPC when you want no shared base table and can accept duplicated columns.
 
@@ -81,6 +81,8 @@ Quick guidance:
 Now lets build this thing.
 This project won't have any controllers or endpoints.
 Just want to prove that we can create the database with no raw SQL statements
+
+<!-- TODO: I don't think we need scalar or openapi -->
 
 ```bash
 # Create the project

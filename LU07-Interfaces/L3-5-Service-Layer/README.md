@@ -3,6 +3,10 @@
 We have talk a lot about interfaces.
 Now lets build a API and use an interface to define the contract for our service layer.
 
+<!-- TODO this example is fine, but change earlier project to NOT use Cars -->
+<!-- TODO build the project one endpoint at a time, so one service, one endpoint -->
+<!-- TODO build diagram explaining how endpoints use the service layer methods, and how they might map and be re-used -->
+
 ## What is a Service Layer?
 
 DB -> Models -> DBContext (Repository) -> Service Layer -> Controller
@@ -24,9 +28,7 @@ DB -> Models -> DBContext (Repository) -> Service Layer -> Controller
 This example is quite large.
 It will take several lectures to build it.
 Our projects now are structurally complex.
-This project is what I call deep but not wide.
-    - Meaning a lot of layers but not a lot of features.
-    - So we can focus on the architecture and not write a lot of code.
+This project is what I call deep but not wide. - Meaning a lot of layers but not a lot of features. - So we can focus on the architecture and not write a lot of code.
 
 ```bash
 # Create Solution
@@ -43,8 +45,20 @@ dotnet sln add LotLogic.Core/LotLogic.Core.csproj
 dotnet add LotLogic.Api/LotLogic.Api.csproj reference LotLogic.Core/LotLogic.Core.csproj
 # Add Nuget Packages
 cd LotLogic.Api
-dotnet add package Microsoft.Data.Sqlite
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet add package Microsoft.AspNetCore.OpenApi
 dotnet add package Scalar.AspNetCore
+```
+
+- Build Model
+- Build DBContext
+- Build Service Layer Interface
+- Build Service Layer Implementation
+- Build Controller
+- Run Migrations
+
+```bash
+dotnet ef migrations add InitialCreate
+dotnet ef database update
 ```
