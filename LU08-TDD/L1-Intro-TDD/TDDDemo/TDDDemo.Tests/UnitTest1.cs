@@ -1,29 +1,36 @@
-﻿namespace TDDDemo.Tests;
+﻿using TDDDemo.App;
+
+namespace TDDDemo.Tests;
+
 
 public class FeaturesTests
 {
     [Fact]
     public void IsEvenBad_ReturnsTrue_ForSimpleEvenInput()
     {
-        bool result = TDDDemo.App.Features.IsEvenBad(4);
+        bool result = Features.IsEvenBad(4);
 
         Assert.True(result);
     }
 
-    [Fact]
-    public void IsEven_WorksForAnyInteger()
+    [Theory]
+    [InlineData(12, true)]
+    [InlineData(13, false)]
+    [InlineData(-8, true)]
+    public void IsEven_WorksForAnyInteger(int number, bool expected)
     {
-        Assert.True(TDDDemo.App.Features.IsEven(12));
-        Assert.False(TDDDemo.App.Features.IsEven(13));
-        Assert.True(TDDDemo.App.Features.IsEven(-8));
+        Assert.Equal(expected, Features.IsEven(number));
     }
 
-    [Fact]
-    public void CountVowelsBad_CountsLowercaseVowels()
+    [Theory]
+    [InlineData("hello world", 3)]
+    [InlineData("AEIOU", 5)]
+    [InlineData("bcdfg", 0)]
+    public void CountVowelsBad_CountsLowercaseVowels(string input, int expected)
     {
-        int result = TDDDemo.App.Features.CountVowelsBad("hello world");
+        int result = TDDDemo.App.Features.CountVowelsBad(input);
 
-        Assert.Equal(3, result);
+        Assert.Equal(expected, result);
     }
 
     [Fact]
