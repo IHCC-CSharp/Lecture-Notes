@@ -48,3 +48,6 @@ Services will not map 1:1 to endpoints.
     - Checks if reservation exists
     - Checks if reservation is in the future
     - Checks if reservation is 12hrs or more in the future (can't cancel within 12hrs of reservation)
+
+    
+OR I a simple lightswitch project with "smart" featurs where the light turns off automaticlly after midnight. 
