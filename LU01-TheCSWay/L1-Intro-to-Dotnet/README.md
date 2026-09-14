@@ -28,7 +28,15 @@ Spend class time to install everything.
 ```bash
 dotnet new console -o HelloWorld
 cd HelloWorld
+# run the program
 dotnet run
+#run hot reload
+dotnet watch run
+
+#make git ignore
+dotnet new gitignore
+
+
 ```
 
 ```csharp

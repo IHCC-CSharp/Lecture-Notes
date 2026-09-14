@@ -28,13 +28,8 @@ public class Package
         return $"Total Packages: {_totalPackagesProcessed} | Total Revenue: ${_totalRevenue:F2}";
     }
 
-    public double CalculateCost()
-    {
-        return ShippingProcessor.CalculatePostage(Weight, Distance);
-    }
-
     public override string ToString()
     {
-        return $"LABEL FOR: {Description}\nWEIGHT:    {Weight}kg\nCOST:      ${CalculateCost():F2}";
+        return $"LABEL FOR: {Description}\nWEIGHT:    {Weight}kg\nCOST: {ShippingProcessor.CalculatePostage(Weight, Distance):C2}";
     }
 }

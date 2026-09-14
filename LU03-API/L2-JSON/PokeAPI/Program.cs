@@ -20,4 +20,12 @@ app.UseAuthorization();
 
 app.MapControllers();
 
+
+// Enable CORS for all origins
+// Used if we build a front end
+app.UseCors(policy => policy
+    .AllowAnyOrigin()
+    .AllowAnyMethod()
+    .AllowAnyHeader());
+
 app.Run();

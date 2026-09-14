@@ -53,7 +53,7 @@ public class LibraryController : ControllerBase
         return Results.Ok(new FineResponse(
             loan.Title,
             loan.CalculateFine(DailyFineRate),
-            loan.DaysOverdue(),
+            loan.DaysOverdue,
             loan.IsOverdue ? "Overdue" : "On Time"
         ));
     }

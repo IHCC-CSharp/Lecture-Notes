@@ -29,6 +29,6 @@ switch (choice)
         RichConsole.WriteLine($"{f2}°F is {c2:F2}°C", new Color(0, 0, 255));
         break;
     default:
-        RichConsole.WriteLine("Invalid choice", TextEffects.AllCaps, new Color(255, 0, 0));
+        RichConsole.WriteLine("Invalid choice.", new Color(255, 0, 0), TextEffects.AllCaps);
         break;
 }

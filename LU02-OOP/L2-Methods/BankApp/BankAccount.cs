@@ -35,4 +35,10 @@ public class BankAccount
 
         return "Transaction Denied: Insufficient funds or invalid amount.";
     }
+
+    // ToString
+    public override string ToString()
+    {
+        return $"Owner: {Owner}, Balance: ${Balance}";
+    }
 }

@@ -2,6 +2,8 @@
 
 ## Arrays
 
+![C# Arrays](https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/arrays/media/array.png)
+
 While we call them "arrays", in this class we will mostly be using "Lists" which are a more flexible version of arrays.
 
 | Arrays                   | Lists                  | ArrayList (old)                         |
@@ -65,5 +67,3 @@ int randomInt = rand.Next(1, 100);
 I like to put these little "Demo"s in my lectures to show how to put together the concepts we've learned in a small program.
 
 - [LU01 Demo](../Demo/Program.cs)
-
-

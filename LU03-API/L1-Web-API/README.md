@@ -2,6 +2,8 @@
 
 ## API Diagram
 
+This diagram is in the slides as well. 
+
 ```mermaid
 graph LR
     Client((Client/Browser)) --> Request[HTTP Request: GET/POST]
@@ -33,6 +35,8 @@ The project will give us a simple weather forecast API.
 Test it out at `https://localhost:[PORT]/weatherforecast` or `http://localhost:[PORT]/openapi/v1.json`.
 
 > Talk about how we will add a UI to OpenAPI later.
+
+Don't create the `.http`. file yet.
 
 ## Customizing the API
 

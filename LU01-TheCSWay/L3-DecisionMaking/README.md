@@ -30,7 +30,7 @@ Simple example showing off if/else and switch statements.
 
 ## Rich Console
 
-Use of NuGet Package: https://www.nuget.org/ 
+Use of NuGet Package: https://www.nuget.org/
 
 [Rich Console](https://www.nuget.org/packages/CSharpPlayersGuide.RichConsole)
 
@@ -43,3 +43,7 @@ dotnet add package CSharpPlayersGuide.RichConsole
 Now using Rich Console lets make a simple Temperature Converter.
 
 - [Temperature Converter](TemperatureConverter/Program.cs)
+
+## GUI vs CLI vs TUI
+
+Show 

@@ -23,6 +23,10 @@ An API is a middleman that allows two applications to talk to each other over a 
 
 ---
 
+![bg width:100%](./diagram.png)
+
+---
+
 ## HTTP
 
 We use specific methods to tell the server what we want to do.

@@ -68,6 +68,7 @@ while (guess != secretNumber)
 // Example 2D List of Temperatures This Week (7 days, 2 readings per day: morning and evening)
 List<List<double>> temperaturesThisWeek = new List<List<double>>
 {
+    //            Morning, Evening
     new List<double> { 15.5, 22.0 }, // Monday
     new List<double> { 16.2, 23.5 }, // Tuesday
     new List<double> { 14.8, 21.3 }, // Wednesday
@@ -79,7 +80,7 @@ List<List<double>> temperaturesThisWeek = new List<List<double>>
 
 Console.WriteLine("\n=== Temperatures This Week ===");
 string[] days = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
-for (int i = 0; i < temperaturesThisWeek.Count; i++)
+for(int i = 0; i < temperaturesThisWeek.Count; i++)
 {
     Console.WriteLine($"{days[i]}: Morning {temperaturesThisWeek[i][0]}°C, Evening {temperaturesThisWeek[i][1]}°C");
 }
