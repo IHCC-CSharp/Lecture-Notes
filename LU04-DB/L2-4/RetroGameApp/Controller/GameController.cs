@@ -7,7 +7,7 @@ namespace RetroGameApp.Controllers;
 
 [ApiController]
 [Route("api/[controller]")]
-public class GamesController(GameRepository repo) : ControllerBase
+public class GameController(GameRepository repo) : ControllerBase
 {
     [HttpGet]
     public IResult GetAll()
@@ -18,11 +18,12 @@ public class GamesController(GameRepository repo) : ControllerBase
 
 
     // TODO change to DTO
+    // http://localhost:5000/api/Game/Search?platform=NES
+    // http://localhost:5000/api/Game/search?platform=NES&genre=Platformer
     [HttpGet("search")]
-    public IResult GetByFilter([FromQuery] string? platform, [FromQuery] string? genre)
+    public IResult Search([FromQuery] GameSearchDto search)
     {
-        var search = new GameSearchDto(platform, genre);
-        var games = repo.GetByFilter(search);
+        var games = repo.Search(search);
         return Results.Ok(games);
     }
 

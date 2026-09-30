@@ -29,8 +29,8 @@ public class LibraryController : ControllerBase
         var newLoan = new BookLoan(
             request.Id,
             request.Title,
-            request.DueDate,
-            request.ReturnedDate
+            DateTime.Today.AddDays(14), // Set a default due date of 2 weeks from today
+            null
         );
 
         LibraryData.Loans.Add(newLoan);

@@ -37,7 +37,7 @@ public class ConsoleApp
                     Console.Write("Enter Platform (e.g., NES, Genesis, SNES): ");
                     string? platform = Console.ReadLine();
                     var search = new GameSearchDto(platform, null);
-                    DisplayGames(repo.GetByFilter(search));
+                    DisplayGames(repo.Search(search));
                     break;
 
                 case "3":
@@ -59,6 +59,8 @@ public class ConsoleApp
         if (!repository.GetAll().Any())
         {
             Console.WriteLine("[System] Seeding initial collection...");
+            // ID is auto-incremented from DB so we can use 0 as a placeholder for new entries
+            // IF we made a DTO for adding new games, we could skip the ID
             repository.Add(new VideoGame(0, "Super Mario Bros.", "NES", 1985, "Platformer"));
             repository.Add(new VideoGame(0, "Sonic the Hedgehog", "Genesis", 1991, "Platformer"));
             repository.Add(new VideoGame(0, "Street Fighter II", "SNES", 1992, "Fighting"));

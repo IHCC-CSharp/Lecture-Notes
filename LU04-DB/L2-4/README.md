@@ -14,8 +14,10 @@ dotnet new webapi -n RetroGameApp # No --use-controllers since we are starting w
 cd RetroGameApp
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 dotnet add package Dapper
-dotnet add package Microsoft.AspNetCore.OpenApi # Might be already included
+## If you have a problem with Scalar.AspNetCore package add it manually
 dotnet add package Scalar.AspNetCore
+## Add gitignore
+dotnet new gitignoreZ
 ```
 
 - Build out the Model
@@ -28,7 +30,7 @@ ConsoleApp app = new ConsoleApp();
 app.Run();
 ```
 
-Temparly chnage project type to Console App in the .csproj file so we can run it.
+Temporarily change project type to Console App in the .csproj file so we can run it.
 Also add Output type to Exe so it will run as a console app.
 
 ```xml

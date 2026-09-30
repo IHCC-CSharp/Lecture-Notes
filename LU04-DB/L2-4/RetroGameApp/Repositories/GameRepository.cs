@@ -35,10 +35,11 @@ public class GameRepository
         return connection.Query<VideoGame>("SELECT * FROM Games");
     }
 
-    public IEnumerable<VideoGame> GetByFilter(GameSearchDto search)
+    public IEnumerable<VideoGame> Search(GameSearchDto search)
     {
         using var connection = new SqliteConnection(_connectionString);
 
+        // 1=1 is for the case when no filters are applied
         var sql = "SELECT * FROM Games WHERE 1=1";
 
         if (!string.IsNullOrEmpty(search.Platform))

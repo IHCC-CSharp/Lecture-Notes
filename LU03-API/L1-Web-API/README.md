@@ -2,6 +2,8 @@
 
 ## API Diagram
 
+<!-- Make the diagram more about APIs remove all DB references (Dapper/Dotnet) -->
+
 This diagram is in the slides as well. 
 
 ```mermaid
