@@ -1,5 +1,7 @@
 # C# Lecture Notes
 
+<!-- TODO Remove Enums from midterm review and Test -->
+
 This repository contains the lecture notes for the C# course.
 Each Learning Unit (LU) has its own folder, and within each LU, there is a subfolder for each lecture (L1, L2, etc.).
 Each lecture folder contains the relevant code files and a `README.md` file with explanations and instructions.

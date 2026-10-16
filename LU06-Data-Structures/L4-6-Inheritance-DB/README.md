@@ -2,6 +2,8 @@
 
 Todays example we will be building a larger API with a database using Entity Framework Core.
 
+> **Note**: Model does not match L2 models exactly, just a similar data scenario.
+
 ## Async/Await
 
 Our project today will use async/await to perform database operations asynchronously.
@@ -20,17 +22,24 @@ cd UrbanMobility.Api
 # Packages via NuGet
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 dotnet add package Microsoft.EntityFrameworkCore.Design
-dotnet add package Microsoft.AspNetCore.OpenApi
 dotnet add package Scalar.AspNetCore
 
 # Add project to a solution
 cd ..
 dotnet new sln
-dotnet sln add UrbanMobility.Api
+dotnet sln add UrbanMobility.Api/UrbanMobility.Api.csproj
 
 # Run the project
 dotnet run
 ```
+
+## Data Structures
+
+![Diagram](UrbanMobilityDiagram.svg)
+
+- [Diagram Source](Diagram.md)
+
+## Building out our project
 
 - Create the Models including the Enums and DTOs
 - Create the DBContext

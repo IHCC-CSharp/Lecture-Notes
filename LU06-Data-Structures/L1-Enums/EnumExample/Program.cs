@@ -1,5 +1,4 @@
-﻿//TODO Change to difrent day of week is built in
-DayOfWeek day = DayOfWeek.Wednesday;
+﻿DayOfWeek day = DayOfWeek.Wednesday;
 Season s = Season.Autumn;
 
 if (s == Season.Autumn)
@@ -29,8 +28,7 @@ var inputDay = Console.ReadLine();
 
 //Do above first
 //https://learn.microsoft.com/en-us/dotnet/api/system.enum.parse?view=net-8.0
-input = input.Trim();
-DayOfWeek userDay = Enum.Parse<DayOfWeek>(inputDay); //Throws an exception
+DayOfWeek userDay = Enum.Parse<DayOfWeek>(inputDay.Trim(), true); //Throws an exception
 Console.WriteLine(userDay);
 
 

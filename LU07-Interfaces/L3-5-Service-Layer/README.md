@@ -4,8 +4,8 @@ We have talk a lot about interfaces.
 Now lets build a API and use an interface to define the contract for our service layer.
 
 <!-- TODO this example is fine, but change earlier project to NOT use Cars -->
-<!-- TODO build the project one endpoint at a time, so one service, one endpoint -->
 <!-- TODO build diagram explaining how endpoints use the service layer methods, and how they might map and be re-used -->
+<!-- TODO change example to use TPC Table per Concrete Class so their should be a Car and Motorcycle -->
 
 ## What is a Service Layer?
 
@@ -50,6 +50,10 @@ dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet add package Microsoft.AspNetCore.OpenApi
 dotnet add package Scalar.AspNetCore
 ```
+
+## Building out the App
+
+**Make sure you build one service and one endpoint at a time.**
 
 - Build Model
 - Build DBContext

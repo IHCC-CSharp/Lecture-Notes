@@ -20,6 +20,7 @@ while (keepGoing)
     DisplayMenu();
     string? choice = Console.ReadLine();
 
+    //TODO: Is there a better way to do this than a switch statement? Maybe a dictionary of delegates?
     switch (choice)
     {
         case "1":
@@ -57,6 +58,8 @@ while (keepGoing)
 
 void DisplayMenu()
 {
+    // TODO this replaces the clear in each method
+    Console.Clear();
     foreach (string t in topics)
     {
         Console.WriteLine(t);

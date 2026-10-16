@@ -9,5 +9,5 @@ public interface ITrackableWork
     PriorityLevel Priority { get; }
 
     string Describe();
-    bool IsOverdue(DateTime today);
+    bool IsOverdue();
 }
