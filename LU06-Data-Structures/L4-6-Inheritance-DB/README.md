@@ -23,6 +23,8 @@ cd UrbanMobility.Api
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 dotnet add package Microsoft.EntityFrameworkCore.Design
 dotnet add package Scalar.AspNetCore
+# Add Git ignore
+dotnet new gitignore
 
 # Add project to a solution
 cd ..

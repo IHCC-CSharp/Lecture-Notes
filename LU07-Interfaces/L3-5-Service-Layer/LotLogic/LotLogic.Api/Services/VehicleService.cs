@@ -65,14 +65,14 @@ public class VehicleService : IVehicleService
         return ToResponse(vehicle);
     }
 
-    private static VehicleResponse ToResponse(Vehicle vehicle) => new()
-    {
-        Id = vehicle.Id,
-        LicensePlate = vehicle.LicensePlate,
-        VehicleType = vehicle is Car ? VehicleType.Car : VehicleType.Motorcycle,
-        CheckInUtc = vehicle.CheckInUtc,
-        CheckOutUtc = vehicle.CheckOutUtc,
-        LastFee = vehicle.LastFee,
-        TotalFees = vehicle.TotalFees
-    };
+    // TODO: Clean this up. 
+    private static VehicleResponse ToResponse(Vehicle vehicle) => new(
+        vehicle.Id,
+        vehicle.LicensePlate,
+        vehicle is Car ? VehicleType.Car : VehicleType.Motorcycle,
+        vehicle.CheckInUtc,
+        vehicle.CheckOutUtc,
+        vehicle.LastFee,
+        vehicle.TotalFees
+    );
 }

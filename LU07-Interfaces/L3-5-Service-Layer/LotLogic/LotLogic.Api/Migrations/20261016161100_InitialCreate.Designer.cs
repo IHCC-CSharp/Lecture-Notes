@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LotLogic.Api.Migrations
 {
     [DbContext(typeof(LotLogicDbContext))]
-    [Migration("20260408160828_InitialCreate")]
+    [Migration("20261016161100_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -23,7 +23,6 @@ namespace LotLogic.Api.Migrations
             modelBuilder.Entity("LotLogic.Core.Models.Vehicle", b =>
                 {
                     b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("CheckInUtc")
@@ -42,32 +41,25 @@ namespace LotLogic.Api.Migrations
                     b.Property<decimal>("TotalFees")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("VehicleType")
-                        .IsRequired()
-                        .HasMaxLength(13)
-                        .HasColumnType("TEXT");
-
                     b.HasKey("Id");
 
-                    b.ToTable("Vehicles");
+                    b.ToTable((string)null);
 
-                    b.HasDiscriminator<string>("VehicleType").HasValue("Vehicle");
-
-                    b.UseTphMappingStrategy();
+                    b.UseTpcMappingStrategy();
                 });
 
             modelBuilder.Entity("LotLogic.Core.Models.Car", b =>
                 {
                     b.HasBaseType("LotLogic.Core.Models.Vehicle");
 
-                    b.HasDiscriminator().HasValue("Car");
+                    b.ToTable("Cars", (string)null);
                 });
 
             modelBuilder.Entity("LotLogic.Core.Models.Motorcycle", b =>
                 {
                     b.HasBaseType("LotLogic.Core.Models.Vehicle");
 
-                    b.HasDiscriminator().HasValue("Motorcycle");
+                    b.ToTable("Motorcycles", (string)null);
                 });
 #pragma warning restore 612, 618
         }

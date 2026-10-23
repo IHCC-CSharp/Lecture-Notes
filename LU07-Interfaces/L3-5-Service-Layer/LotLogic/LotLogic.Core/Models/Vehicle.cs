@@ -11,10 +11,13 @@ public abstract class Vehicle
 
     public abstract decimal RateMultiplier { get; }
 
+    // TODO: add a constructor
+
     public void CheckIn()
     {
         if (CheckInUtc.HasValue)
             // TODO Make this a custom exception type
+            // Don't actually add it just comment that we should use one
             throw new InvalidOperationException("Vehicle is already checked in.");
 
         CheckInUtc = DateTime.UtcNow;

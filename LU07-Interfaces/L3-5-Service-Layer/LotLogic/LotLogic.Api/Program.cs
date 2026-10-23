@@ -18,8 +18,10 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-using (var scope = app.Services.CreateScope())
-    scope.ServiceProvider.GetRequiredService<LotLogicDbContext>().Database.EnsureCreated();
+// .Migrate() will create the database if it does not exist and apply any pending migrations. 
+// Ensures that the database schema is up to date when the application starts.
+// using (var scope = app.Services.CreateScope())
+//     scope.ServiceProvider.GetRequiredService<LotLogicDbContext>().Database.Migrate();
 
 app.MapOpenApi();
 app.MapScalarApiReference();

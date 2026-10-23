@@ -3,9 +3,7 @@
 We have talk a lot about interfaces.
 Now lets build a API and use an interface to define the contract for our service layer.
 
-<!-- TODO this example is fine, but change earlier project to NOT use Cars -->
-<!-- TODO build diagram explaining how endpoints use the service layer methods, and how they might map and be re-used -->
-<!-- TODO change example to use TPC Table per Concrete Class so their should be a Car and Motorcycle -->
+<!-- TODO: This was too long of an example, give students starter code with Core (Models) -->
 
 ## What is a Service Layer?
 
@@ -47,7 +45,6 @@ dotnet add LotLogic.Api/LotLogic.Api.csproj reference LotLogic.Core/LotLogic.Cor
 cd LotLogic.Api
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
 dotnet add package Microsoft.EntityFrameworkCore.Design
-dotnet add package Microsoft.AspNetCore.OpenApi
 dotnet add package Scalar.AspNetCore
 ```
 
@@ -57,12 +54,16 @@ dotnet add package Scalar.AspNetCore
 
 - Build Model
 - Build DBContext
-- Build Service Layer Interface
-- Build Service Layer Implementation
-- Build Controller
-- Run Migrations
+- Wire up DBContext in Program.cs
+    - Project don't use ConnectionStrings
+    - Run Migrations and look at db
 
 ```bash
 dotnet ef migrations add InitialCreate
 dotnet ef database update
 ```
+
+- Build Service Layer Interface
+- Build Service Layer Implementation
+- Build Controller
+- Run Migrations

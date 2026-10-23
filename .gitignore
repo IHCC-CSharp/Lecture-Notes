@@ -4,3 +4,10 @@
 
 # Any DB files
 *.db
+*.db-shm
+**.db-wal
+
+# Any zip files
+*.zip
+*.7z
+*.tar.gz

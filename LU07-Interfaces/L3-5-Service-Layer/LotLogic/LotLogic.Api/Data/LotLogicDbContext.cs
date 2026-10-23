@@ -9,14 +9,14 @@ public class LotLogicDbContext : DbContext
     {
     }
 
-    public DbSet<Vehicle> Vehicles { get; set; }
+    public DbSet<Vehicle> Vehicles => Set<Vehicle>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        // Configure TPH inheritance for Vehicle, Car, and Motorcycle
         modelBuilder.Entity<Vehicle>()
-            .HasDiscriminator<string>("VehicleType")
-            .HasValue<Car>("Car")
-            .HasValue<Motorcycle>("Motorcycle");
+            .UseTpcMappingStrategy();
+
+        modelBuilder.Entity<Car>().ToTable("Cars");
+        modelBuilder.Entity<Motorcycle>().ToTable("Motorcycles");
     }
 }

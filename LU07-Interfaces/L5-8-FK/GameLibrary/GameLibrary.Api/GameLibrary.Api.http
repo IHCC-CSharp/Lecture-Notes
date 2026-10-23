@@ -1,0 +1,33 @@
+@GameLibrary.Api_HostAddress = http://localhost:5088
+
+### Add a console
+POST {{GameLibrary.Api_HostAddress}}/api/library/consoles
+Content-Type: application/json
+
+{
+  "name": "Nintendo Switch",
+  "manufacturer": "Nintendo",
+  "releaseDate": "2017-03-03T00:00:00"
+}
+
+### Add a game to an existing console (use the console ID returned above)
+POST {{GameLibrary.Api_HostAddress}}/api/library/games
+Content-Type: application/json
+
+{
+  "title": "The Legend of Zelda: Breath of the Wild",
+  "genre": "Action-adventure",
+  "releaseDate": "2017-03-03T00:00:00",
+  "consoleId": 1
+}
+
+### A missing console returns 404
+POST {{GameLibrary.Api_HostAddress}}/api/library/games
+Content-Type: application/json
+
+{
+  "title": "Example game",
+  "genre": "Adventure",
+  "releaseDate": "2020-01-01T00:00:00",
+  "consoleId": 9999
+}

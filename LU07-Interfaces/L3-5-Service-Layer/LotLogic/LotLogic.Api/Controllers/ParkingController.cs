@@ -4,6 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace LotLogic.Api.Controllers;
 
+
+// TODO catch exceptions and return appropriate HTTP status codes
+
 [ApiController]
 [Route("api/parking")]
 public class ParkingController : ControllerBase
