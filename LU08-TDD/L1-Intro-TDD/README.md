@@ -2,8 +2,6 @@
 
 ## What is TDD?
 
-<!-- TODO use interface -->
-
 - [Slides](./Slides/slides.html)
 
 ## TDD Example

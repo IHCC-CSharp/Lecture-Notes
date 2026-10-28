@@ -24,7 +24,7 @@ public class FeaturesTests
 
     [Theory]
     [InlineData("hello world", 3)]
-    [InlineData("AEIOU", 5)]
+    [InlineData("aeiou", 5)] //Only works with lowercase vowels
     [InlineData("bcdfg", 0)]
     public void CountVowelsBad_CountsLowercaseVowels(string input, int expected)
     {

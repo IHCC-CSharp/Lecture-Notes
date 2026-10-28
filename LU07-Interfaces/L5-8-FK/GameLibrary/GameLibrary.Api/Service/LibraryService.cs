@@ -15,6 +15,7 @@ public class LibraryService(LibraryContext context) : ILibraryService
 
     public async Task<Game?> AddGameAsync(GameRequest request)
     {
+        //TODO example this line didn't work???
         var consoleExists = await context.Consoles
             .AnyAsync(gameConsole => gameConsole.Id == request.ConsoleId);
         if (!consoleExists)

@@ -2,7 +2,15 @@
 
 ## What is Mocking?
 
+Mocking is a technique used in software development to create fake objects that simulate the behavior of real objects. This is particularly useful in unit testing, where you want to test a component in isolation without relying on external dependencies.
+
+We don't do that.
+We are using the real DB just in memory only.
+
 ## Create the Project
+
+Students will download a zip file containing the project.
+Below are the commands to create the project from scratch.
 
 RestoReserve
 
@@ -30,24 +38,39 @@ dotnet add package Microsoft.AspNetCore.OpenApi
 dotnet add package Scalar.AspNetCore.Microsoft
 ```
 
-## Controllers
+## Db Seeding
 
-Below is my idea what services/endpoints we will have in our API.
-Services will not map 1:1 to endpoints.
+This project has auto seeding of the database. When the application starts, it will check if the database is empty and seed it with some initial data.
 
-- [POST] `api/restaurants` - Create a new restaurant
+Seeding data can be in any format you want. Just need to parse it and add it to the database. You can use JSON, CSV, or XML.
+Or as a simple C# code to add data to the database.
 
-- [GET] `api/reservations` - Get all reservations
-- [GET] `api/reservations/{id}` - Get a reservation by **restaurant** id.
-- [POST] `api/reservations` - Create a new reservation
-    - Checks restaurant is open at the time of reservation
-    - Checks if reservation is in the future
-    - Checks if restaurant has capacity at the time of reservation
-    - Checks if no other reservation exists for the same restaurant at the same time (our restaurant only has one table)
-- [PATCH] `api/reservations/{id}` - Cancel a reservation
-    - Checks if reservation exists
-    - Checks if reservation is in the future
-    - Checks if reservation is 12hrs or more in the future (can't cancel within 12hrs of reservation)
+## Manual Testing
 
-    
-OR I a simple lightswitch project with "smart" featurs where the light turns off automaticlly after midnight. 
+```json
+{
+    "restaurantName": "Bubba-Q's",
+    "customerName": "Luke",
+    "reservationTime": "2026-10-28T18:30:00"
+}
+```
+
+## XUnit Tests
+
+```bash
+# Run in RestoReserve.Tests folder
+dotnet test
+```
+
+## Blazor Server Client
+
+The separate Blazor Web App renders interactively on the server and calls the
+API with `HttpClient`. It references `RestoReserve.Core` for request and
+response models.
+
+Run the API and web app in separate terminals:
+
+```bash
+dotnet run --project RestoReserve.Api
+dotnet run --project RestoReserve.Web
+```

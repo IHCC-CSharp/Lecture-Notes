@@ -9,6 +9,8 @@ namespace GameLibrary.Api.Controllers;
 [Route("api/library")]
 public class LibraryController(ILibraryService libraryService) : ControllerBase
 {
+    //TODO clean up return times to modern dotnet style remove
+
     [HttpGet("games")]
     public async Task<ActionResult<IEnumerable<Game>>> GetAllGames()
     {

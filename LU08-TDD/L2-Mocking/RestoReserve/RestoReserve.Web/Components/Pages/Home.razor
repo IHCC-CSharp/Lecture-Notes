@@ -1,0 +1,160 @@
+﻿@page "/"
+@rendermode InteractiveServer
+@using System.ComponentModel.DataAnnotations
+@using RestoReserve.Core.DTOs
+@using RestoReserve.Core.Models
+@inject RestoApiClient Api
+
+<PageTitle>Reservations</PageTitle>
+
+<h1>Reservations</h1>
+<button @onclick="() => LoadAsync()" disabled="@busy">Refresh</button>
+
+@if (message is not null)
+{
+    <p role="status">@message</p>
+}
+
+<h2>Book a reservation</h2>
+<EditForm Model="booking" OnValidSubmit="CreateAsync">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <p>
+        <label>
+            Restaurant
+            <InputSelect @bind-Value="booking.RestaurantName">
+                <option value="">Choose a restaurant</option>
+                @foreach (var restaurant in restaurants)
+                {
+                    <option value="@restaurant.Name">@restaurant.Name</option>
+                }
+            </InputSelect>
+        </label>
+    </p>
+    <p>
+        <label>
+            Your name
+            <InputText @bind-Value="booking.CustomerName" />
+        </label>
+    </p>
+    <p>
+        <label>
+            Date and time
+            <InputDate Type="InputDateType.DateTimeLocal" @bind-Value="booking.ReservationTime" />
+        </label>
+    </p>
+    <button type="submit" disabled="@busy">Book</button>
+</EditForm>
+
+<h2>All reservations (@reservations.Count)</h2>
+@if (reservations.Count == 0)
+{
+    <p>No reservations yet.</p>
+}
+else
+{
+    <ul>
+        @foreach (var reservation in reservations)
+        {
+            <li>
+                @restaurantNames.GetValueOrDefault(reservation.RestaurantId, "Restaurant")
+                — @reservation.CustomerName,
+                @reservation.ReservationTime.ToString("g")
+                (@reservation.Status)
+                @if (reservation.Status != RStatus.Cancelled && reservation.ReservationTime > DateTime.Now)
+                {
+                    <button @onclick="() => CancelAsync(reservation.Id)" disabled="@busy">Cancel</button>
+                }
+            </li>
+        }
+    </ul>
+}
+
+@code {
+    private readonly BookingForm booking = new()
+    {
+        ReservationTime = DateTime.Today.AddDays(1).AddHours(18)
+    };
+
+    private List<Restaurant> restaurants = [];
+    private List<Reservation> reservations = [];
+    private Dictionary<int, string> restaurantNames = [];
+    private string? message;
+    private bool busy;
+
+    protected override Task OnInitializedAsync() => LoadAsync();
+
+    private async Task LoadAsync(bool clearMessage = true)
+    {
+        busy = true;
+        if (clearMessage)
+        {
+            message = null;
+        }
+
+        try
+        {
+            restaurants = await Api.GetRestaurantsAsync();
+            restaurantNames = restaurants.ToDictionary(r => r.Id, r => r.Name);
+            reservations = await Api.GetReservationsAsync();
+        }
+        catch (HttpRequestException ex)
+        {
+            message = $"Could not load data: {ex.Message}";
+        }
+        finally
+        {
+            busy = false;
+        }
+    }
+
+    private Task CreateAsync() => RunAsync(async () =>
+    {
+        await Api.CreateReservationAsync(new CreateReservation
+        {
+            RestaurantName = booking.RestaurantName,
+            CustomerName = booking.CustomerName,
+            ReservationTime = booking.ReservationTime
+        });
+        booking.CustomerName = string.Empty;
+        message = "Reservation created.";
+    });
+
+    private Task CancelAsync(int id) => RunAsync(async () =>
+    {
+        await Api.CancelReservationAsync(id);
+        message = "Reservation cancelled.";
+    });
+
+    private async Task RunAsync(Func<Task> action)
+    {
+        busy = true;
+        message = null;
+        try
+        {
+            await action();
+            await LoadAsync(clearMessage: false);
+        }
+        catch (HttpRequestException ex)
+        {
+            message = ex.StatusCode == System.Net.HttpStatusCode.Conflict
+                ? $"Cannot complete that action: {ex.Message}"
+                : ex.Message;
+        }
+        finally
+        {
+            busy = false;
+        }
+    }
+
+    private sealed class BookingForm
+    {
+        [Required]
+        public string RestaurantName { get; set; } = "";
+
+        [Required]
+        public string CustomerName { get; set; } = "";
+
+        public DateTime ReservationTime { get; set; }
+    }
+}

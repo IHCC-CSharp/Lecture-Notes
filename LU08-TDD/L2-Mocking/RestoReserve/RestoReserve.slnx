@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="RestoReserve.Api/RestoReserve.Api.csproj" />
+  <Project Path="RestoReserve.Core/RestoReserve.Core.csproj" />
+  <Project Path="RestoReserve.Tests/RestoReserve.Tests.csproj" />
+  <Project Path="RestoReserve.Web/RestoReserve.Web.csproj" />
+</Solution>
